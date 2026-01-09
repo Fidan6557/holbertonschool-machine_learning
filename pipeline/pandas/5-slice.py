@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-"""Selects the High, Low, Close, and Volume_BTC columns and every 60th row from the DataFrame. """
-
+"""Slices the DataFrame every 60 rows and selects specific columns."""
 
 def slice(df):
-    """Selects the High, Low, Close, and Volume_BTC columns and every 60th row from the DataFrame."""
-    return df.loc[:, ['High', 'Low', 'Close', 'Volume_(BTC)']].iloc[::60]
+   """Slices the DataFrame every 60 rows and selects specific columns."""
+   return df.loc[:, ['High', 'Low', 'Close', 'Volume_(BTC)']].iloc[::60]
