@@ -10,5 +10,5 @@ def rename(df):
     format, and returns a DataFrame with only the Datetime and Close columns.
     """
     df = df.rename(columns={'Timestamp': 'Datetime'})
-    df['Datetime'] = pd.to_datetime(df['Datetime'])
+    df['Datetime'] = pd.to_datetime(df['Datetime'], units='ns')
     return df[['Datetime', 'Close']]
