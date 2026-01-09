@@ -8,5 +8,5 @@ def array(df):
 
     :param df: Description
     """
-    df = df.tail(10).to_numpy()
+    df = df[['High', 'Close']].tail(10).to_numpy()
     return df
