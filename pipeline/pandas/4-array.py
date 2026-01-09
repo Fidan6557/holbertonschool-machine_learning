@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """Converting DataFrame to numpy array"""
-import pandas as pd 
 
 
 def array(df):
     """
     Docstring for array
-    
+
     :param df: Description
     """
     df = pd.DataFrame('High', 'Close')
-    df = df.tail(10).to_numpy.ndarray()
+    df = df.tail(10).to_numpy()
     return df
