@@ -3,6 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def scatter():
     """Scatter plot"""
     mean = [69, 0]
@@ -16,4 +17,3 @@ def scatter():
     plt.title('Men\'s Height vs Weight')
     plt.scatter(x, y, color='magenta', marker='o')
     plt.show()
-    
