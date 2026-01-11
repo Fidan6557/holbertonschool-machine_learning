@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 def two():
-
+    """Plot the exponential decay of C-14 and Ra-226 on the same graph."""
     x = np.arange(0, 21000, 1000)
     r = np.log(0.5)
     t1 = 5730
@@ -18,6 +18,7 @@ def two():
     plt.xlabel('Time (years)')
     plt.ylabel('Fraction Remaining')
     plt.title('Exponential Decay of Radioactive Elements')
+    plt.legend()
     plt.xlim(0, 20000)
     plt.ylim(0, 1)
     plt.show()
