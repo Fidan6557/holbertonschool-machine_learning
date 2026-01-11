@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
+"""Plot stacked bar chart of fruit consumption"""
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def bars():
+    """Plot a stacked bar chart showing the quantity of different fruits"""
     np.random.seed(5)
-    fruit = np.random.randint(0, 20, (4,3))
+    fruit = np.random.randint(0, 20, (4, 3))
     plt.figure(figsize=(6.4, 4.8))
     people = ('Farrah', 'Fred', 'Felicia')
     plt.bar(people, fruit[0], width=0.5, color='red', label='apples')
