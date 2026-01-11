@@ -3,6 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def change_scale():
     """Plot the exponential decay of C-14 with a logarithmic y-axis."""
     x = np.arange(0, 28651, 5730)
