@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"Shape function from sctratch"
+"""Shape function from sctratch"""
 
 
 def matrix_shape(matrix):
-    "Shape function from sctratch"
+    """Shape function from sctratch"""
     shape = []
     while isinstance(matrix, list):
         shape.append(len(matrix))
