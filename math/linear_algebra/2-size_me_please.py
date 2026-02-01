@@ -3,6 +3,7 @@
 
 
 def matrix_shape(matrix):
+    "Shape function from sctratch"
     shape = []
     while isinstance(matrix, list):
         shape.append(len(matrix))
