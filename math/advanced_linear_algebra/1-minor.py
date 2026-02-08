@@ -1,26 +1,50 @@
 #!/usr/bin/env python3
-"""a function def minor(matrix):
- that calculates the minor matrix of a matrix"""
+""" MINOR """
 
 
 def minor(matrix):
-    """that calculates the minor matrix of a matrix"""
-    if (not isinstance(matrix, list) or
-            not all(isinstance(row, list) for row in matrix)):
-        raise TypeError("matrix must be a list of lists")
-    n = len(matrix)
+    """ FIND THE MINOR """
 
-    if matrix == [] or matrix == [[]]:
+    if any(not isinstance(i, list) for i in matrix) or matrix == []:
+        raise TypeError("matrix must be a list of lists")
+
+    if len(matrix) == 1 and len(matrix[0]) == 1:
+        return [[1]]
+
+    if any(len(i) != len(matrix) for i in matrix) or matrix == [[]]:
         raise ValueError("matrix must be a non-empty square matrix")
 
-    for row in matrix:
-        if len(row) != n:
-            raise ValueError("matrix must be a non-empty square matrix")
+    m = [[] for _ in range(len(matrix))]
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            m[i].append(determinant([
+                row[:j] + row[j+1:]
+                for row in (matrix[:i]+matrix[i+1:])
+                ]))
+    return m
 
-    minor_matrix = [[0 for _ in range(n)] for _ in range(n)]
-    for i in range(n):
-        for j in range(n):
-            sub_matrix = [row[:j] + row[j+1:]
-                          for row in (matrix[:i] + matrix[i+1:])]
-            minor_matrix[i][j] = determinant(sub_matrix)
-    return minor_matrix
+
+def determinant(matrix):
+    """ Find determinant """
+
+    if any(not isinstance(i, list) for i in matrix):
+        raise TypeError("matrix must be a list of lists")
+
+    if matrix == [[]]:
+        return 1
+
+    if any(len(i) != len(matrix) for i in matrix):
+        raise ValueError("matrix must be a square matrix")
+
+    if len(matrix) == 1:
+        return matrix[0][0]
+
+    if len(matrix) == 2:
+        return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
+
+    det = 0
+    for i in range(len(matrix)):
+        minor = [k[:i] + k[i + 1:] for k in matrix[1:]]
+        det += ((-1) ** i) * matrix[0][i] * determinant(minor)
+
+    return det
