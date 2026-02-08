@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """A function that calculates the determinant of a matrix"""
-import numpy as np 
 
 
 def determinant(matrix):
