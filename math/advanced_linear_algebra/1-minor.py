@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """a function def minor(matrix):
  that calculates the minor matrix of a matrix"""
-determinant = __import__('0-determinant').determinant
 
 
 def minor(matrix):
