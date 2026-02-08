@@ -25,4 +25,4 @@ def determinant(matrix):
         minor = [k[:i] + k[i+1:] for k in matrix[1:]]
         det += ((-1) ** i) * matrix[0][i] * determinant(minor)
 
-    return det 
+    return det
