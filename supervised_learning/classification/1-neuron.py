@@ -15,4 +15,4 @@ class Neuron:
 
         self.__W = np.random.randn(1, nx)
         self.__b = 0
-        self.__ A = 0
+        self.__A = 0
