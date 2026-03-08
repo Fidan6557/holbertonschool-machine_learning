@@ -52,12 +52,3 @@ class Neuron:
         cost = self.cost(Y, A)
         prediction = np.where(A >= 0.5, 1, 0)
         return prediction, cost
-
-    def gradient_descent(self, X, Y, A, alpha=0.05):
-        """gradient descent of the neuron"""
-        m = Y.shape[1]
-        dZ = A - Y
-        dW = np.dot(dZ, X.T) / m
-        db = np.sum(dZ) / m
-        self.__W -= alpha * dW
-        self.__b -= alpha * db
