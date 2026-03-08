@@ -32,7 +32,6 @@ class Neuron:
         """getter for A"""
         return self.__A
 
-
     def forward_prop(self, X):
         """forward propagation of the neuron"""
         Z = np.dot(self.__W, X) + self.__b
