@@ -1,24 +1,24 @@
-
 #!/usr/bin/env python3
-"""A module that does the trick"""
+
+
+"""Classification"""
+
+
 import numpy as np
 
 
 class NeuralNetwork:
-    """A class that represents a neural network"""
-
+    """Neural Network Class"""
     def __init__(self, nx, nodes):
-        """Constructor for the neural network"""
-        if not isinstance(nx, int):
+        """Init Function"""
+        if type(nx) is not int:
             raise TypeError("nx must be an integer")
         if nx < 1:
             raise ValueError("nx must be a positive integer")
-
-        if not isinstance(nodes, int):
+        if type(nodes) is not int:
             raise TypeError("nodes must be an integer")
         if nodes < 1:
             raise ValueError("nodes must be a positive integer")
-
         self.__W1 = np.random.randn(nodes, nx)
         self.__b1 = np.zeros((nodes, 1))
         self.__A1 = 0
@@ -28,45 +28,44 @@ class NeuralNetwork:
 
     @property
     def W1(self):
-        """Get the weights of the first layer"""
+        """Getter Method"""
         return self.__W1
 
     @property
-    def W2(self):
-        """Get the weights of the second layer"""
-        return self.__W2
-
-    @property
     def b1(self):
-        """Get the biases of the first layer"""
+        """Getter Method"""
         return self.__b1
 
     @property
+    def A1(self):
+        """Getter Method"""
+        return self.__A1
+
+    @property
+    def W2(self):
+        """Getter Method"""
+        return self.__W2
+
+    @property
     def b2(self):
-        """Get the biases of the first layer"""
+        """Getter Method"""
         return self.__b2
 
     @property
     def A2(self):
-        """Get the activation function of the second layer"""
+        """Getter Method"""
         return self.__A2
 
-    @property
-    def A1(self):
-        """Get the activation function of the second layer"""
-        return self.__A1
-
     def forward_prop(self, X):
-        """Forward propagation"""
-        z1 = self.__W1.dot(X) + self.__b1
-        self.__A1 = 1 / (1 + np.exp(-z1))
-        z2 = self.__W2.dot(self.__A1) + self.__b2
-        self.__A2 = 1 / (1 + np.exp(-z2))
+        """Forward Propagation"""
+        Z1 = np.dot(self.__W1, X) + self.__b1
+        self.__A1 = 1 / (1 + np.exp(-Z1))
+        Z2 = np.dot(self.__W2, self.__A1) + self.__b2
+        self.__A2 = 1 / (1 + np.exp(-Z2))
         return self.__A1, self.__A2
 
     def cost(self, Y, A):
-        """Calculate the cost of the network"""
+        """Cost Function"""
         m = Y.shape[1]
-        m_loss = np.sum((Y * np.log(A)) + ((1 - Y) * np.log(1.0000001 - A)))
-        cost = (1 / m) * (-m_loss)
-        return cost
+        J1 = -(1 / m) * np.sum(Y * np.log(A) + (1 - Y) * np.log(1.0000001 - A))
+        return J1
