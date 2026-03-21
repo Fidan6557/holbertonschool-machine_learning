@@ -12,5 +12,4 @@ def l2_reg_cost(cost, lambtha, weights, L, m):
 
     # L2 regularization term
     l2_term = (lambtha / (2 * m)) * frobenius_sum
-    
     return cost + l2_term
