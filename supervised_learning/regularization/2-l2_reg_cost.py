@@ -5,4 +5,6 @@ import tensorflow as tf
 
 def l2_reg_cost(cost, model):
     """ L2 regularization cost """
-    return cost + [layer.losses for layer in model.layers if layer.losses]
+    if not model.losses:
+        return cost
+    return cost + tf.convert_to_tensor(model.losses)
