@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Updates the weights and biases of a neural network using gradient descent with L2 regularization"""
+"""Updates weights via GD with L2 regularization."""
 import numpy as np
 
 
 def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
-    """Updates the weights and biases of a neural network using gradient descent with L2 regularization"""
-    m = Y.shape[1]
+    """Updates weights via GD with L2 regularization."""    m = Y.shape[1]
     dZ = cache['A' + str(L)] - Y
  
     for layer in range(L, 0, -1):
