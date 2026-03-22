@@ -5,6 +5,7 @@ import numpy as np
 
 def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
     """Updates weights via GD with L2 regularization."""    m = Y.shape[1]
+    m = Y.shape[1]
     dZ = cache['A' + str(L)] - Y
  
     for layer in range(L, 0, -1):
@@ -25,3 +26,4 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
         # Update weights and biases in place
         weights['W' + str(layer)] = W - alpha * dW
         weights['b' + str(layer)] = b - alpha * db
+ 
