@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 '''strided convolution'''
 import numpy as np
