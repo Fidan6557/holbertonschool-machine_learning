@@ -1,7 +1,6 @@
 
 #!/usr/bin/env python3
-"""
-Builds a modified version of the LeNet-5 archite"""
+"""Builds a modified version of the LeNet-5 architecture"""
 from tensorflow import keras as K
 
 
