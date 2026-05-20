@@ -250,4 +250,3 @@ class NST:
         grads = tape.gradient(total_cost, generated_image)
 
         return grads, total_cost, content_cost, style_cost
-    
